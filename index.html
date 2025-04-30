@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+<head> <!--Specifies the character encoding-->
+    <meta charset="UTF-8"> <!-- Makes the website responsive on different screen sizes-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        header {
+    <!--Internal CSS styles for the webpage-->
+    <style> /*Styles the header to display content*/
+        header { 
             display: flex;
             align-items: center;
             justify-content: space-between;
             background-color: black;
             padding: 20px;
         }
+        /*Styles the header title*/
         header h1 {
             color: white;
             margin: 0;
             flex-grow: 1;
             text-align: center;
         }
+        /*Removes default styling from the navigation list*/
         nav ul {
             list-style: none;
             display: flex;
             margin: 0;
             padding: 0;
         }
+        /*Adds space between navigation list items*/
         nav ul li {
             margin-left: 10px;
         }
+        /*Styles the navigation links*/
         nav ul li a{
             color: white;
             text-decoration: none;
             font-size: 1.4em;
         }
+        /*adds underline effect when hovering over navigation links */
         nav ul li a:hover {
             text-decoration: underline;
         }
+        /*Emphasizes text using bold weight, larger size, shadow, and black color */
         .highlight-text {
             font-weight: bold;
             font-size: 1.5em;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             color: rgb(0, 0, 0);
         }
+        /*Centers a container both vertically and horizontally on the screen */
         .center-container{
             display: flex;
             justify-content: center;
@@ -48,6 +56,7 @@
             height: 100vh;
             text-align: center;
         }
+        /* Centers text content inside a column layout */
         .centered-text {
             display: flex;
             justify-content: center;
@@ -55,12 +64,14 @@
             text-align: center;
             flex-direction: column;
         }
+        /*Container for the profile section, using flex to space content*/
         .profile-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin: 20px;
         }
+        /* Styles the profile image to be circular with shadow*/
         .profile-picture{
             border-radius: 50%;
             width: 150px;
@@ -69,10 +80,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin-left: 20px;
         }
+        /* Styles the text content section to grow and align text to the left*/
         .text-content{
             flex-grow: 1;
             text-align: left;
         }
+        /*Styles the thank you image to be centered and responsive*/
         .thank-you {
             margin-top: 20px;
             max-width: 100%;
@@ -84,56 +97,55 @@
     </style>
 </head>
 <body>
-    <header> <h1> Welcome to My Website </h1>
+    <!-- Page header with site title and navigation links -->
+    <header>
+        <h1> Welcome to My Website </h1>
         <nav>
             <ul>
-                <li>
-                  <a href="index.html">Home</a>
-                </li>
-                <li>
-                  <a href="aboutt.html">About</a>
-                </li>
-                <li>
-                  <a href="second.html">Contact</a>
-                </li>
+                <!-- Navigation links to other pages -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutt.html">About</a></li>
+                <li><a href="second.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
+        <!-- Profile section with image and introduction text -->
         <div class="profile-container">
             <div class="text-content">
-                <br>
-                <br>
-                <br>
+                <br><br><br> <!-- Adds spacing above text -->
                 <p>
                     <span class="highlight-text">
-                        This is my website. To learn about me, visit the about link. If you want to contact me, visit the contact link. It's preferable to text my number at 404-555-5555 because that's where I respond the fastest.
+                        This is my website. To learn about me, visit the about link...
                     </span>
                 </p>
                 <p>
                     <span class="highlight-text">
-                        Have you ever coded before? If you have, then keep working on your coding skills consistently. If you haven't, try learning the basics of Python, Java, and SQL. Even if it isn't within your field, there's nothing wrong with having a new skill.
+                        Have you ever coded before? If you have...
                     </span>
                 </p>
-            </p>
-            <p>
-                <span class="highlight-text">
-                    Some goals that I have are that I want to create a successful business where I profit off of my creativity and inspire other people to be creative. I'm passionate about having a purpose because it keeps me focused on the prize.
-                </span>
-            </p>
+                <p>
+                    <span class="highlight-text">
+                        Some goals that I have are that I want to create...
+                    </span>
+                </p>
+            </div>
+            <!-- Profile image on the right -->
+            <img src="unnamed-99.jpg" alt="Profile Image" class="profile-picture">
         </div>
-        <br>
-        <br>
-        <br>
-        <img src="unnamed-99.jpg" alt="Profile Image" class="profile-picture">
-    </div>
-    <div class="centered-container">
-        <p class="highlight-text">Thank you for visiting my website.</p>
-        <img src="data:image/jpeg;base64,/9j/2w==" alt="Your Image" class="thank-you">
-    </div>
-</main>
-<footer>
-<p>© 2025 Joshua Thompson. All rights reserved.</p>
-</footer>
+
+        <!-- Thank you section centered on the page -->
+        <div class="centered-container">
+            <p class="highlight-text">Thank you for visiting my website.</p>
+            <!-- Placeholder for a thank-you image using base64 (cutoff in this snippet) -->
+            <img src="data:image/jpeg;base64,/9j/2w==" alt="Your Image" class="thank-you">
+        </div>
+    </main>
+
+    <!-- Footer with copyright -->
+    <footer>
+        <p>© 2025 Joshua Thompson. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -1,115 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- This line tells the browser that the document is written in HTML5 -->
+
 <head>
     <meta charset="UTF-8">
+    <!-- Sets the character encoding so the browser knows how to read the text properly -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the page look good on all devices, including phones and tablets -->
+
     <title>About</title>
+    <!-- Sets the name that appears in the browser tab -->
+
     <style>
+        /* This section styles the webpage using CSS (Cascading Style Sheets) */
+
         header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: black;
-            padding: 20px;
+            display: flex; /* Places items in a row */
+            align-items: center; /* Vertically aligns items in the center */
+            justify-content: space-between; /* Pushes content to the edges */
+            background-color: black; /* Makes the background black */
+            padding: 20px; /* Adds space inside the header */
         }
+
         header h1 {
-            color: white;
-            margin: 0;
+            color: white; /* Makes the text white */
+            margin: 0; /* Removes space around the heading */
         }
+
         nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            gap: 20px;
+            list-style: none; /* Removes bullet points from the list */
+            display: flex; /* Arranges links in a row */
+            margin: 0; /* Removes space around the list */
+            padding: 0; /* Removes space inside the list */
+            gap: 20px; /* Adds space between list items */
         }
+
         nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.4em;
+            color: white; /* Makes the link text white */
+            text-decoration: none; /* Removes underline from links */
+            font-size: 1.4em; /* Makes the font a bit bigger */
         }
+
         nav ul li a:hover {
-            text-decoration: underline;
+            text-decoration: underline; /* Underlines the link when the mouse is over it */
         }
+
         p {
-            font-size: 1.6em;
-            font-weight: bold;
-            text-align: center;
+            font-size: 1.6em; /* Makes paragraph text larger */
+            font-weight: bold; /* Makes text bold */
+            text-align: center; /* Centers the text */
         }
 
         #welcomeModal {
-            display: block;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0, 0.2);
-            border-radius: 8px;
-            text-align: center;
+            display: block; /* Makes the modal (pop-up) appear by default */
+            position: fixed; /* Keeps it in place on screen */
+            top: 50%; /* Moves it halfway down the screen */
+            left: 50%; /* Moves it halfway across the screen */
+            transform: translate(-50%, -50%); /* Centers the box on the screen */
+            background-color: white; /* Sets the background to white */
+            padding: 20px; /* Adds space inside the box */
+            box-shadow: 0 4px 8px rgba(0,0,0, 0.2); /* Adds a shadow around the box */
+            border-radius: 8px; /* Rounds the corners of the box */
+            text-align: center; /* Centers all the text inside */
         }
 
         #emailInput {
-            padding: 8px;
-            margin: 10px;
-            width: 80%;
+            padding: 8px; /* Adds space inside the text box */
+            margin: 10px; /* Adds space around the box */
+            width: 80%; /* Makes the text box 80% the width of its container */
         }
 
         #error-message {
-            color: red;
-            display: none;
+            color: red; /* Makes the error message red */
+            display: none; /* Hides the error message by default */
         }
 
     </style>
 </head>
+
 <body>
+    <!-- This is the visible part of the webpage -->
+
     <header>
+        <!-- This is the top section of the page that usually holds the title and navigation -->
+
         <h1>Contact Me</h1>
+        <!-- This is the title displayed in the header -->
+
         <nav>
+            <!-- Navigation section with links to other pages -->
+
             <ul>
+                <!-- List of links (menu items) -->
+
                 <li><a href="index.html">Home</a></li>
+                <!-- Link to the Home page -->
+
                 <li><a href="aboutt.html">About</a></li>
+                <!-- Link to the About page -->
+
                 <li><a href="second.html">Contact</a></li>
+                <!-- Link to the Contact page -->
             </ul>
         </nav>
     </header>
+
     <main>
-        <div id="welcomeModal" >
+        <!-- This is the main content area of the page -->
+
+        <div id="welcomeModal">
+            <!-- A pop-up box asking the user for their Gmail -->
+
             <p>Please enter your Gmail address so I can contact you.</p>
+
             <input type="email" id="emailInput" placeholder="Enter your Gmail" style="padding: 8px; margin: 10px; width: 80%;">
-            <p id="error-message" style="color: red; display: none;">Enter a valid Gmail address please.</p> <button onclick="validateEmail()">Submit</button> </div>
+            <!-- Input box where users type their Gmail -->
+
+            <p id="error-message" style="color: red; display: none;">Enter a valid Gmail address please.</p>
+            <!-- Error message that only shows if the user doesn’t enter a valid Gmail -->
+
+            <button onclick="validateEmail()">Submit</button>
+            <!-- Button that runs the validateEmail() function when clicked -->
+        </div>
+
         <p>
             <strong>
                 "If you do contact me, please contact me only with your email or phone number. Any other form of communication is not preferred because most of the information I receive goes to either my phone number or email."
             </strong>
         </p>
+
         <p>
             <strong>"Feel free to contact me for inquiries, content, etc. with the contact information provided below."</strong>
         </p>
+
         <p>
             <strong>Phone Number: 123-456-7890</strong>
         </p>
+
         <p>
             <strong>Email: joshuathompson404@gmail.com</strong>
         </p>
-        <br>
-        <br>
-        <br>
+
+        <!-- These paragraphs contain your actual contact info -->
+
+        <br><br><br>
+        <!-- Adds extra blank space at the bottom -->
     </main>
+
     <script>
-        window.onload = function(){
+        // This is JavaScript, which controls the interactive behavior
+
+        window.onload = function() {
+            // When the page fully loads, show the pop-up box
             document.getElementById("welcomeModal").style.display = "block";
         };
-        function validateEmail(){
-            var email = document.getElementById("emailInput").value;
-            var errorMessage = document.getElementById("error-message");
 
-            if (email.endsWith("@gmail.com")){
+        function validateEmail() {
+            // This function checks if the email entered is a Gmail
+
+            var email = document.getElementById("emailInput").value;
+            // Get the text entered in the input box
+
+            var errorMessage = document.getElementById("error-message");
+            // Get the error message paragraph
+
+            if (email.endsWith("@gmail.com")) {
+                // Check if the email ends with "@gmail.com"
+
                 document.getElementById("welcomeModal").style.display = "none";
+                // If it's a Gmail, close the pop-up
+
                 alert("Thank you. I will contact you via " + email);
+                // Show a message thanking the user and displaying their email
             } else {
                 errorMessage.style.display = "block";
+                // If it's not a Gmail, show the error message
             }
         }
     </script>

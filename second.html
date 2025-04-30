@@ -1,61 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <style>
-            header {
-    display: flex; /* make the header a flex container */
-    align-items: center; /* center items vertically */
-    justify-content: space-between; /* space items out horizontally */
-    background-color: black; /* black background */
-    padding: 20px; /* padding around the header */
-}
-header h1 { /* style the header h1 */
-    color: white; /* white text color */
-    margin: 0; /* remove default margin */
-}
-nav ul { /* style the ul */
-    list-style: none; /* remove default list styles */
-    display: flex; /* make the ul a flex container */
-    margin: 0; /* remove default margin */
-    padding: 0; /* remove default padding */
-    gap: 20px; /* space items out */
-}
-nav ul li a { /* style the links */
-    color: white; /* white text color */
-    text-decoration: none; /* remove underline */
-    font-size: 1.4em; /* 1.4 times the default font size */
-}
-nav ul li a:hover { /* when hovering over a link */
-    text-decoration: underline; /* underline on hover */
-}
-p {
-    font-size: 1.6em; /* 1.6 times the default font size */
-    font-weight: bold; /* bold text */
-    text-align: center; /* center text */
-}
-</style>
-<title>About</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: black;
+            padding: 20px;
+        }
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.4em;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        p {
+            font-size: 1.6em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #welcomeModal {
+            display: block;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0, 0.2);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        #emailInput {
+            padding: 8px;
+            margin: 10px;
+            width: 80%;
+        }
+
+        #error-message {
+            color: red;
+            display: none;
+        }
+
+    </style>
 </head>
 <body>
     <header>
         <h1>Contact Me</h1>
-       <nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="aboutt.html">About</a></li>
-        <li><a href="second.html">Contact</a></li>
-    </ul>
-</nav>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutt.html">About</a></li>
+                <li><a href="second.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <h2></h2>
+        <div id="welcomeModal" >
+            <p>Please enter your Gmail address so I can contact you.</p>
+            <input type="email" id="emailInput" placeholder="Enter your Gmail" style="padding: 8px; margin: 10px; width: 80%;">
+            <p id="error-message" style="color: red; display: none;">Enter a valid Gmail address please.</p> <button onclick="validateEmail()">Submit</button> </div>
         <p>
             <strong>
                 "If you do contact me, please contact me only with your email or phone number. Any other form of communication is not preferred because most of the information I receive goes to either my phone number or email."
             </strong>
         </p>
         <p>
-            <strong>"Feel free to contact me for inquires, content, etc with the contact information provided below.</strong>
+            <strong>"Feel free to contact me for inquiries, content, etc. with the contact information provided below."</strong>
         </p>
         <p>
             <strong>Phone Number: 123-456-7890</strong>
@@ -67,5 +97,22 @@ p {
         <br>
         <br>
     </main>
+    <script>
+        window.onload = function(){
+            document.getElementById("welcomeModal").style.display = "block";
+        };
+        function validateEmail(){
+            var email = document.getElementById("emailInput").value;
+            var errorMessage = document.getElementById("error-message");
+
+            if (email.endsWith("@gmail.com")){
+                document.getElementById("welcomeModal").style.display = "none";
+                alert("Thank you. I will contact you via " + email);
+            } else {
+                errorMessage.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
+
